@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I-KHub Product Shortcut</title>
+    <link rel="shortcut icon" href="image/logo_ikhub.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bd5c7c48a0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <nav id="navBar">
+            <img src="image/logo_header.jpg" alt="Indonesia Knowledge Hub">
+            <a class="judul" href="#">I-KHub Product Hub</a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#footer">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="container" id="beranda">
+            <h1 class="txt-head">Telusuri Produk Unggulan I-KHub</h1>
+            
+        </div>
+    </div>
+    <br>
+    <!-- Filter Section -->
+    <div class="container my-5" id="produk">
+        <h4 class="text-flt">Filter Kategori</h4>
+        <br>
+        <div class="d-flex justify-content-center flex-wrap">
+            <button class="btn btn-outline-info filter-btn mx-2" data-category="all">Semua</button>
+            <button class="btn btn-outline-info filter-btn mx-2" data-category="outlook">Outlook</button>
+            <button class="btn btn-outline-info filter-btn mx-2" data-category="infografis">Infografis</button>
+            <button class="btn btn-outline-info filter-btn mx-2" data-category="kebijakan">Kebijakan</button>
+            <button class="btn btn-outline-info filter-btn mx-2" data-category="e-book">E-book</button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.trending > div'); // Ambil semua produk
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter products
+                productItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block'; // Tampilkan produk
+                    } else {
+                        item.style.display = 'none'; // Sembunyikan produk
+                    }
+                });
+            });
+        });
+
+        // Toggle Show More / Show Less
+        const toggleLinks = document.querySelectorAll('.toggle-text');
+        toggleLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const titleId = this.getAttribute('data-title');
+                const titleElement = document.getElementById('title-' + titleId);
+                const showMoreElement = document.getElementById('more-' + titleId);
+
+                if (titleElement.style.overflow === 'hidden') {
+                    titleElement.style.overflow = 'visible';
+                    titleElement.style.display = 'block';
+                    this.textContent = 'Show Less';
+                } else {
+                    titleElement.style.overflow = 'hidden';
+                    titleElement.style.display = '-webkit-box';
+                    this.textContent = 'Show More';
+                }
+            });
+        });
+    });
+</script>
+
+
+    <div class="container">
+
+        <h2 class="sub-titles">Produk Unggulan</h2>
+        <div class="trending">
+            <div data-category="outlook">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/8f6a62f9-07c0-4bc9-892e-1a433366f483/images/Sekretariat_I-KHub_BNPT-2024_I-KH_Wi15Dpd/ffedbc2679e615d1350da0e7a7eadc0e.jpg" alt="">
+                <h3>I-KHub BNPT Counter Terrorism and Violent Extremism Outlook 2024</h3>
+                <a href="https://ikhub.id/produk/outlook/i-k-hub-bnpt-counter-terrorism-and-violent-extremism-outlook-2024-97541133" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="kebijakan">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/34edee04-2bb4-4e0a-93fa-dacc076e0665/images/Badan_Nasional_Penanggulangan_Te_86uiDpj/dbd3ead6ebd84ddc413407019d9a9034.jpeg" alt="">
+                <h3>Policy Brief Pencegahan Penyalahgunaan Barang Berbahaya yang Berpotensi Digunakan untuk Tindak Pidana Terorisme melalui Koordinasi dan Kolaborasi antara BNPT dengan Penyedia Perdagangan Melalui Sistem Elektronik</h3>
+                <a href="https://ikhub.id/produk/analisis-kebijakan/policy-brief-pencegahan-penyalahgunaan-barang-berbahaya-yang-berpotensi-digunakan-untuk-tindak-pidana-terorisme-melalui-koordinasi-dan-kolaborasi-antara-bnpt-dengan-penyedia-perdagangan-melalui-sistem-elektronik-54345394" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="kebijakan">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/8f6a62f9-07c0-4bc9-892e-1a433366f483/images/Sekretariat_I-KHub_BNPT-Policy_An_fmE5Ppw/421b26ebca42f83f067bfec33c8b7a0f.jpg" alt="">
+                <h3>Pencegahan Ekstremisme Berbasis Kekerasan di Kalangan Aparatur Negara</h3>
+                <a href="https://ikhub.id/produk/analisis-kebijakan/pencegahan-ekstremisme-berbasis-kekerasan-di-kalangan-aparatur-negara-80250289" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="kebijakan">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/8f6a62f9-07c0-4bc9-892e-1a433366f483/images/Sekretariat_I-KHub_BNPT-Part_1_Co_bBxDSPa/b94f115206fc2ebcce7b8ad3eca67842.jpg" alt="">
+                <h3>Mengatasi Polemik Pendirian Rumah Ibadat</h3>
+                <a href="https://ikhub.id/produk/analisis-kebijakan/mengatasi-polemik-pendirian-rumah-ibadat-72726403" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="outlook">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/34edee04-2bb4-4e0a-93fa-dacc076e0665/images/Badan_Nasional_Penanggulangan_Ter_JJwduMe/a22cf4c88da4e1d2c5a49dc7ae3686e8.jpg" alt="">
+                <h3></h3>[ID] I-KHub BNPT Counter Terrorism and Violent Extremism Outlook</h3>
+                <a href="https://ikhub.id/produk/outlook/id-i-k-hub-bnpt-counter-terrorism-and-violent-extremism-outlook-21678673" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="outlook">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/34edee04-2bb4-4e0a-93fa-dacc076e0665/images/Badan_Nasional_Penanggulangan_Ter_JJwduMe/a22cf4c88da4e1d2c5a49dc7ae3686e8.jpg" alt="">
+                <h3>[ID] I-KHub BNPT Counter Terrorism and Violent Extremism Outlook</h3>
+                <a href="https://ikhub.id/produk/outlook/id-i-k-hub-bnpt-counter-terrorism-and-violent-extremism-outlook-21678673" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="kebijakan">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/8f6a62f9-07c0-4bc9-892e-1a433366f483/images/Sekretariat_I-KHub_BNPT-Part_1_Co_2DPTf4G/4dfd8db2a0fb3b6715e3e2d600c6c119.jpg" alt="">
+                <h3>Repatriasi, Rehabilitasi, dan Reintegrasi Anak-anak yang terafiliasi dengan Kelompok Terorisme dan Ekstremisme Berbasis Kekerasan</h3>
+                <a href="https://ikhub.id/produk/analisis-kebijakan/repatriasi-rehabilitasi-dan-reintegrasi-anak-anak-yang-terafiliasi-dengan-kelompok-terorisme-dan-ekstremisme-berbasis-kekerasan-82724766" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="e-book">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/1ee6a544-4729-49fa-b9bc-7053aa72488d/images/Pusat_Pelaporan_dan_Analisis_Tran_M9RZATD/0e84244780d63bdcf7dd895f03ceda9d.jpg" alt="">
+                <h3>Indonesia National Risk Assessment (NRA) on Terrorism Financing and Financing of Proliferation of Weapons of Mass Destruction 2021</h3>
+                <a href="https://ikhub.id/produk/buku/indonesia-national-risk-assessment-nra-on-terrorism-financing-and-financing-of-proliferation-of-weapons-of-mass-destruction-2021-17714651" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+            <div data-category="kebijakan">
+                <img src="https://base.api.ikhub.org/assets/CACHE/images/Organisasi/8f6a62f9-07c0-4bc9-892e-1a433366f483/images/Sekretariat_I-KHub_BNPT-Part_1_Co_V537Dra/bc458a98f0a596fe585e3b2be05ff44e.jpg" alt="">
+                <h3>Kencenderungan Penguatan Intoleransi di Komunitas PAUD</h3>
+                <a href="https://ikhub.id/produk/analisis-kebijakan/kencenderungan-penguatan-intoleransi-di-komunitas-paud-31979692" class="btn-tren" target="_blank">Akses Product</a>
+            </div>
+        </div>
+        <hr>
+        <div class="about-msg" id="footer">
+            <h2>About I-KHub</h2>
+            <p>Indonesia Knowledge Hub (I-KHub) adalah sistem manajemen data digital terpadu yang mengintegrasikan data dan informasi antar lembaga pemerintah dan non-pemerintah yang berfungsi sebagai mekanisme koordinasi, pemantauan, dan pelaporan pelaksanaan Rencana Aksi Nasional Pencegahan dan Penanggulangan Ekstremisme Berbasis Kekerasan yang mengarah pada Terorisme (RAN PE) serta fasilitator kerjasama dan kolaborasi program pencegahan dan penanggulangan ekstrimisme berbasis kekerasan yang mengarah pada terorisme.</p>
+        </div>
+
+        <div class="footer">
+            <a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@humasbnptri"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/i-khub/"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/bnptri/"><i class="fa-brands fa-instagram"></i></a>
+            <hr>
+            <p>© Copyright 2023 | I-KHub BNPT</p>
+        </div>
+
+    </div>
+
+    <script>
+        var navBar=document.getElementById("navBar");
+        function togglebtn()
+        {
+            navBar.classList.toggle("hidemenu");
+        }
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle Show More / Show Less
+        const toggleLinks = document.querySelectorAll('.toggle-text');
+        toggleLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const titleId = this.getAttribute('data-title');
+                const titleElement = document.getElementById('title-' + titleId);
+                const showMoreElement = document.getElementById('more-' + titleId);
+
+                if (titleElement.style.overflow === 'hidden') {
+                    titleElement.style.overflow = 'visible';
+                    titleElement.style.display = 'block';
+                    this.textContent = 'Show Less';
+                } else {
+                    titleElement.style.overflow = 'hidden';
+                    titleElement.style.display = '-webkit-box';
+                    this.textContent = 'Show More';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>
