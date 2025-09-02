@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I-KHub Product Shortcut</title>
-    <link rel="shortcut icon" href="image/logo_ikhub.ico">
+    <link rel="shortcut icon" href="image/logo_ikhub_square.ico">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/bd5c7c48a0.js" crossorigin="anonymous"></script>
 </head>
@@ -14,7 +14,7 @@
 <body>
     <div class="header">
         <nav id="navBar">
-            <img src="image/logo_header.jpg" alt="Indonesia Knowledge Hub">
+            <img src="image/logo_header.JPG" alt="Indonesia Knowledge Hub">
             <a class="judul" href="#">I-KHub Product Hub</a>
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
@@ -30,16 +30,16 @@
     <br>
     <!-- Filter Section -->
     <div class="container my-5" id="produk">
-        <h4 class="text-flt">Filter Kategori</h4>
-        <br>
-        <div class="d-flex justify-content-center flex-wrap">
-            <button class="btn btn-outline-info filter-btn mx-2" data-category="all">Semua</button>
-            <button class="btn btn-outline-info filter-btn mx-2" data-category="outlook">Outlook</button>
-            <button class="btn btn-outline-info filter-btn mx-2" data-category="infografis">Infografis</button>
-            <button class="btn btn-outline-info filter-btn mx-2" data-category="kebijakan">Kebijakan</button>
-            <button class="btn btn-outline-info filter-btn mx-2" data-category="e-book">E-book</button>
-        </div>
+    <h4 class="text-flt">Filter Kategori</h4>
+    <br>
+    <div class="d-flex justify-content-center flex-wrap">
+        <button class="btn btn-outline-info filter-btn mx-2 active" data-category="all">Semua</button>
+        <button class="btn btn-outline-info filter-btn mx-2" data-category="outlook">Outlook</button>
+        <button class="btn btn-outline-info filter-btn mx-2" data-category="infografis">Infografis</button>
+        <button class="btn btn-outline-info filter-btn mx-2" data-category="kebijakan">Kebijakan</button>
+        <button class="btn btn-outline-info filter-btn mx-2" data-category="e-book">E-book</button>
     </div>
+</div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -185,7 +185,60 @@
     });
 </script>
 
-</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productItems = document.querySelectorAll('.trending > div');
 
+    // Set default active button
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    const defaultBtn = document.querySelector('.filter-btn[data-category="all"]');
+    if (defaultBtn) defaultBtn.classList.add('active');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter products
+            productItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = ''; // Tampilkan produk (default grid)
+                } else {
+                    item.style.display = 'none'; // Sembunyikan produk
+                }
+            });
+        });
+    });
+
+    // Toggle Show More / Show Less
+    const toggleLinks = document.querySelectorAll('.toggle-text');
+    toggleLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const titleId = this.getAttribute('data-title');
+            const titleElement = document.getElementById('title-' + titleId);
+
+            if (titleElement.style.webkitLineClamp === '3' || !titleElement.style.webkitLineClamp) {
+                // Expand text
+                titleElement.style.webkitLineClamp = 'unset';
+                titleElement.style.overflow = 'visible';
+                this.textContent = 'Show Less';
+            } else {
+                // Collapse text
+                titleElement.style.webkitLineClamp = '3';
+                titleElement.style.overflow = 'hidden';
+                this.textContent = 'Show More';
+            }
+        });
+    });
+});
+</script>
+
+
+</body>
 
 </html>
